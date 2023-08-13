@@ -1,0 +1,18 @@
+```mermaid
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note right of browser: The browser will send the user input to the server.
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+
+    Note right of browser: The browser will send the user input to the server. 
+    Note right of browser: However since this is an SPA, no additional GET methods will be sent.
+    Note right of browser: Instead, it creates a new note, adds it to the notes list and rerenders the page.
+
+    server-->>browser: Status code 201
+    deactivate server
+
+```
